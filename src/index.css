@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f6f7f9;
+  color: #1e2230;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #38bdf8;
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #d5dae3;
+  border-radius: 999px;
+  border: 2px solid #f6f7f9;
+}
+::-webkit-scrollbar-thumb:hover { background: #b0bac9; }
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.98] shadow-sm;
+  }
+  .btn-accent {
+    @apply btn bg-sky-500 text-white hover:bg-sky-400 active:scale-[0.98] shadow-sm;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink-700 hover:bg-ink-100;
+  }
+  .btn-outline {
+    @apply btn border border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50;
+  }
+  .card {
+    @apply rounded-2xl bg-white border border-ink-100 shadow-card;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 placeholder-ink-400 transition focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-1.5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(15,19,32,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15,19,32,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.text-balance { text-wrap: balance; }
